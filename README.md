@@ -1,4 +1,4 @@
-<html> !DOCTYPE>
+<html !DOCTYPE lang="en">
 <head>
 	<title>BIBIFI Challenge Fall 2016</title>
 
