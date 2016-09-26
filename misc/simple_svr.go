@@ -11,7 +11,6 @@ import (
   "log"
   "net"
   "net/http"
-  "net/http/internal"
   "os"
   "runtime"
   "sync"
@@ -150,7 +149,7 @@ func (s *Server) Close() {
     for c, st := range s.conns {
       // Force-close any idle connections (those between
       // requests) and new connections (those which connected
-      // but never sent a request). 
+      // but never sent a request).
       // we wait for "outstanding requests", so we don't close things
       // in StateActive.
       if st == http.StateIdle || st == http.StateNew {
@@ -281,7 +280,7 @@ func (s *Server) closeConnChan(c net.Conn, done chan<- struct{}) {
     // Don't trust
     // that that the ConnState state machine will get to
     // StateClosed. Instead, just go there directly. may leak
-    // resources if the syscall doesn't end up returning. 
+    // resources if the syscall doesn't end up returning.
     s.forgetConn(c)
   }
 
