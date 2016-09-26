@@ -1,6 +1,5 @@
 <html !DOCTYPE="html" lang="en">
 <head>
-<title>BIBIFI</title>
 </head>
 <body>
 <H1> BIBIFI </H1>

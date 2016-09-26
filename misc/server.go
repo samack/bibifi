@@ -6,19 +6,17 @@ import (
     "os"
 )
 
-const (
+func main() {
+
     CONN_HOST = "localhost"
     CONN_PORT = "3333"
     CONN_TYPE = "tcp"
     AD_pwd = "admin"
-)
 
-func main() {
-
-     argCount := len(os.Args[1:])
+    argCount := len(os.Args[1:])
     CONN_PORT = os.Args[0]
     AD_pwd = os.Args[1]
-    
+
     // Listen for incoming connections.
     l, err := net.Listen(CONN_TYPE, CONN_HOST+":"+CONN_PORT)
     if err != nil {
@@ -32,7 +30,7 @@ func main() {
         // Listen for an incoming connection.
         conn, err := l.Accept()
         if err != nil {
-            fmt.Println("Error accepting: ", err.Error())
+            fmt.Println("\{\"return_code\": 63 ", err.Error()), " \}\"")
             os.Exit(1)
         }
         // Handle connections in a new goroutine.
@@ -47,7 +45,8 @@ func handleRequest(conn net.Conn) {
   // Read the incoming connection into the buffer.
   reqLen, err := conn.Read(buf)
   if err != nil {
-    fmt.Println("\{\"status\":\"Failed " + err.Error() + " \"\}")
+    fmt.Println("\"\{\"return_code: \" : 255 \}\"")
+    fmt.Println("\{\"status\":\"Failed " + err.Error() + " \"\}\"")
   }
   // Send a response back to person contacting us.
   conn.Write([]byte("Message received."))
