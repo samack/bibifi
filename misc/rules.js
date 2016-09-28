@@ -47,8 +47,7 @@ function _transform(event, encoding, callback) {
     if (err) {
       handleError(err);
       console.log("{'return_code' : 254}");
-    }else
-    {
+    } else {
         reply = {
             id: event.id,
             success: true
@@ -72,5 +71,5 @@ function _transform(event, encoding, callback) {
 /// Fake push to queue
 
 function pushToQueue(object, callback) {  
-    setTimeout(callback, Math.floor(30* 1000));  //check session timeout TODO: fix error
+    setTimeout(callback, Math.floor(30 * 1000));  //check session timeout TODO: fix error
 }

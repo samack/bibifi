@@ -12,6 +12,13 @@ server.listen(port, host, function() {
   //console.log("Server started ", host, port);
 });
 
+process.on('SIGTERM', function (){
+            server.close(function (){
+                console.log("{'return_code' : 0}"); 
+                process.exit(0);
+            } );
+        } ); 
+
 function handleConnection(conn) {  
   var s = JSONDuplexStream();
   var rules = Rules();
@@ -21,9 +28,10 @@ function handleConnection(conn) {
     pipe(s.out).
     pipe(conn);
 
-  s.in.on('error', onProtocolError);
-  s.out.on('error', onProtocolError);
-  conn.on('error', onConnError);
+    s.in.on('error', onProtocolError);
+    s.out.on('error', onProtocolError);
+    conn.on('error', onConnError);
+
 
   function onProtocolError(err) {
     conn.end("{'return_code' : 255}", err);
