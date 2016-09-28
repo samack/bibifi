@@ -2,8 +2,6 @@ var extend = require('util')._extend;
 var inherits = require('util').inherits;  
 var Transform = require('stream').Transform;
 
-
-
 module.exports = Rules;
 
 inherits(Rules, Transform);
@@ -29,39 +27,41 @@ function Rules(options) {
 
 Rules.prototype._transform = _transform;
 
-function eSize(event){
+ function eSize(event){
       var meter = require("stream-meter")(4096);
       meter.on("error", function (err){
             console.log("Stream exceeds 4096");
-       }
-      event.pip(meter).pipe(process.stderr);
-};
+       }); 
+
+     // object.pipe(meter).pipe(process.stderr);
+  }; 
 
 function _transform(event, encoding, callback) {  
   if (! event.id)
     return handleError(new Error('event doesn\'t have an `id` field'));
 
   pushToQueue(event, pushed);
+  eSize(event);   //check stream length TODO: fix error
 
   function pushed(err) {
     if (err) {
       handleError(err);
+      console.log("{'return_code' : 254}");
     }else
     {
-      reply = {
-        id: event.id,
-        success: true
-      };
+        reply = {
+            id: event.id,
+            success: true
+         };
 
-      callback(null, reply);
+        callback(null, reply);
     }
-  }
+  };
 
   function handleError(err) {
     var reply = {
       id: event.id,
-      success: false,
-      error: err.message
+      FAILED: err.message
     };
 
     callback(null, reply);
@@ -72,7 +72,5 @@ function _transform(event, encoding, callback) {
 /// Fake push to queue
 
 function pushToQueue(object, callback) {  
-  setTimeout(callback, Math.floor(30* 1000));  //check session timeout TODO: fix error
-  eSize(object);   //check stream length TODO: fix error
- console.log("{'return_code' : 63}");
+    setTimeout(callback, Math.floor(30* 1000));  //check session timeout TODO: fix error
 }

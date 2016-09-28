@@ -2,11 +2,14 @@ var net = require('net');
 var port = 9000;
 var host = "localhost";
 var server = net.createServer();  
+var JSONDuplexStream = require('json-duplex-stream');
+
+var Rules = require('./rules');
 
 server.on('connection', handleConnection);
 
 server.listen(port, host, function() {  
-  console.log("{'return_code' : 0}");
+  //console.log("Server started ", host, port);
 });
 
 function handleConnection(conn) {  
@@ -23,7 +26,7 @@ function handleConnection(conn) {
   conn.on('error', onConnError);
 
   function onProtocolError(err) {
-    conn.end("{'return_code' : 255}");
+    conn.end("{'return_code' : 255}", err);
   }
 
   function onConnClose() {
@@ -31,6 +34,6 @@ function handleConnection(conn) {
   }
 
   function onConnError(err) {
-    console.log("{'return_code' : 255}");
+    console.log("{'return_code' : 63}");
   }
 }
