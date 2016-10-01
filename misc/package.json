@@ -8,7 +8,7 @@
   "licenses": [
     "OSL-3.0"
   ],
-  "dependencies": { "bnf" : "0.1.2", "json-duplex-stream" : "1.2.0", "stream-meter" : "1.0.4" },
+  "dependencies": { "bnf" : "0.1.2", "json-duplex-stream" : "1.2.0", "stream-meter" : "1.0.4", "yargs" : "6.0.0" },
   "config": {"port": 9000, 
                  "admPwd": "admin" },
 }

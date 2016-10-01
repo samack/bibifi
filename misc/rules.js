@@ -71,5 +71,5 @@ function _transform(event, encoding, callback) {
 /// Fake push to queue
 
 function pushToQueue(object, callback) {  
-    setTimeout(callback, Math.floor(30 * 1000));  //check session timeout TODO: fix error
+    setTimeout(callback, Math.floor(3 * 1000));  //check session timeout TODO: fix error
 }
