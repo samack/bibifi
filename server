@@ -23,12 +23,8 @@ else
 
 fi
 
-port = echo "$1"
-password = admin
-
-
-if [[  -n "$port" ]]; then
-     
+if [[  -n "$1" ]]; then
+     port = echo "$1"
 fi
 
 if [[ -n $2]]; then
