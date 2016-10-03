@@ -32,3 +32,4 @@ if [ $@ = 2 ]; then
 fi
 
 $(node server.js test $port $password)
+echo "{"return_code" : 0}"
