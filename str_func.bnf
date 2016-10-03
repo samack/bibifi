@@ -1,0 +1,3 @@
+<expression> ::=  … | <func> ( <args> )
+<func> ::= split | concat | tolower
+<args> ::= <value> | <value> , <args>

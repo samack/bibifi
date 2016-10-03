@@ -1,0 +1,14 @@
+{
+  "name": "server",
+  "description": "BNF tcp server for BIBIFI Coursera Challenge",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/spyd3rw3b/bibifi.git"
+  },
+  "licenses": [
+    "OSL-3.0"
+  ],
+  "dependencies": { "bnf" : "0.1.2", "json-duplex-stream" : "1.2.0", "stream-meter" : "1.0.4", "yargs" : "6.0.0" },
+  "config": {"port": 9000, 
+                 "admPwd": "admin" }
+}

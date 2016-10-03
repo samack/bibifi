@@ -1,0 +1,41 @@
+#!/bin/bash
+
+if $(node -v | grep -Eq ^v5 ); then
+    print_status "Node installed"
+else
+    $(sudo apt-get install nodejs)
+    $(sudo apt-get install build-essential checkinstall)
+fi
+
+
+if $(npm -v | grep -Eq ^3); then
+    print_status "NPM installed...now check packages"
+else
+    $(sudo apt-get install npm)
+
+
+fi
+
+if $(ls node_modules | grep json-duplex-stream >/dev/null 2>&1); then
+         "modules installed"
+else
+        $(npm install json-duplex-stream)
+        $(npm install stream-meter)
+        $(npm install yargs)
+        $(npm install bnf)
+
+fi
+
+if $1; then
+   port = $1
+fi
+
+if $2; then
+   password = $2
+else
+   password = "admin"
+fi
+
+   $(curl -sL git clone https://www.github.com/spyd3rw3b/bibifi.git)
+
+   $(node server.js test port password)
