@@ -25,7 +25,7 @@ password=admin
 echo "$password"
 
 if [ "$#" = 1 ]; then
-     $port = echo "$1"
+     $port = "$1"
      echo "$1"
 fi
 
