@@ -1,2 +1,0 @@
-<prim_cmd> ::= … | filtereach y in x with <expression>
-<func> ::= … | equal | notequal
