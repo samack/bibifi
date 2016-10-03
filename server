@@ -23,16 +23,16 @@ else
 
 fi
 
-port = $0
+port = echo "$1"
 password = admin
 
 
-if [[ "$port" ]]; then
+if [[  -n "$port" ]]; then
      
 fi
 
-if [[$1]]; then
-   password = $1
+if [[ -n $2]]; then
+   password =  echo "$2"
 else
    password = "admin"
 fi
