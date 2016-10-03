@@ -21,7 +21,7 @@ else
         $(npm install bnf)
 fi
 
-$password = "admin"
+$password=admin
 
 if [ $@ = 1 ]; then
      $port = echo "$1"
