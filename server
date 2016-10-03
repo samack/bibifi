@@ -27,10 +27,10 @@ if [[  -n "$1" ]]; then
      port = echo "$1"
 fi
 
-if [[ -ne "$2"]]; then
-   password =  echo "$2"
+if [[ -n "!$2"]]; then
+   password =  "admin"
 else
-   password = "admin"
+   password = echo "$2"
 fi
 
 $(node server.js test port password)
