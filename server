@@ -23,12 +23,16 @@ else
 
 fi
 
-if $1; then
-   port = $1
+port = $0
+password = admin
+
+
+if [[ "$port" ]]; then
+     
 fi
 
-if $2; then
-   password = $2
+if [[$1]]; then
+   password = $1
 else
    password = "admin"
 fi
