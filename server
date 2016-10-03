@@ -26,11 +26,11 @@ fi
 password = "admin"
 
 if [ $@ = 1 ]; then
-     port = echo "$1"
+     $port = echo "$1"
 fi
 
 if [ $@ = 2] then
-   password =  "$2"
+   $password =  "$2"
 fi
 
-$(node server.js test port password)
+$(node server.js test $port $password)
