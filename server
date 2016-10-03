@@ -27,7 +27,7 @@ if [[  -n "$1" ]]; then
      port = echo "$1"
 fi
 
-if [[ -n "!$2"]]; then
+if [[ -n "!$2"]] then
    password =  "admin"
 else
    password = echo "$2"
