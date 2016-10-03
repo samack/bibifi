@@ -11,8 +11,6 @@ if $(npm -v | grep -Eq ^3); then
     print_status "NPM installed...now check packages"
 else
     $(sudo apt-get install npm)
-
-
 fi
 
 if $(ls node_modules | grep json-duplex-stream >/dev/null 2>&1); then
@@ -35,6 +33,4 @@ else
    password = "admin"
 fi
 
-   $(curl -sL git clone https://www.github.com/spyd3rw3b/bibifi.git)
-
-   $(node server.js test port password)
+$(node server.js test port password)
