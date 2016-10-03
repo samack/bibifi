@@ -1,19 +1,19 @@
 #!/bin/bash
 
 if $(node -v | grep -Eq ^v5 ); then
-    print_status "Node installed"
+    echo "Node installed"
 else
     $(sudo apt-get install nodejs)
 fi
 
 if $(npm -v | grep -Eq ^3); then
-    print_status "NPM installed...now check packages"
+    echo "NPM installed...now check packages"
 else
     $(sudo apt-get install npm)
 fi
 
 if $(ls node_modules | grep json-duplex-stream >/dev/null 2>&1); then
-         print_status "modules installed"
+         echo "modules installed"
 else
         $(npm install json-duplex-stream)
         $(npm install stream-meter)
@@ -21,7 +21,7 @@ else
         $(npm install bnf)
 fi
 
-password = "admin"
+$password = "admin"
 
 if [ $@ = 1 ]; then
      $port = echo "$1"
