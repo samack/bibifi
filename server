@@ -22,17 +22,13 @@ else
 fi
 
 password=admin
-echo "$password"
 
 if [ "$#" = 1 ]; then
      port="$1"
-     echo "$1"
 fi
 
 if [ "$#" = 2 ]; then
    password="$2"
-   echo "$2"
 fi
 
 $(node server.js test $port $password)
-echo "{"return_code" : 0}"
