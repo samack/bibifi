@@ -11,7 +11,10 @@ if $(npm -v | grep -Eq ^2); then
 else
     $(apt-get install npm)
 fi
-$(npm install bnf)
-$(npm install json-duplex-stream)
-$(npm install stream-meter)
-$(npm install yargs)
+
+PATH=$(npm bin):$PATH bnf
+PATH=$(npm bin):$PATH json-duplex-stream
+PATH=$(npm bin):$PATH stream-meter
+PATH=$(npm bin):$PATH yargs
+
+alias npm-exec='PATH=$(npm bin):$PATH
