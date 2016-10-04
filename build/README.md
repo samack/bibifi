@@ -7,7 +7,7 @@
 <UL><h3>Requirements:</h3>
   <li>TCP Server that listens on a port between 1,024 and 65,535</li>
   <li>Server initates with port between 1024 and 65535</il>
-  <li>server initates with optional admin password, otherwise default is admin</li>
+  <li>server initates with optional admin password, otherwise default is admin </li>
 
   <li>Requires BNF grammar and syntax</li>
   <li>user authentication in syntax</li>
