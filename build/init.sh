@@ -11,3 +11,7 @@ if $(npm -v | grep -Eq ^2); then
 else
     $(apt-get install npm)
 fi
+$(npm install bnf)
+$(npm install json-duplex-stream)
+$(npm install stream-meter)
+$(npm install yargs)
