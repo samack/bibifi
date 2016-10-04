@@ -12,4 +12,4 @@ if [ $# -eq 2 ]; then
 fi
 $(ps -efa | grep node | grep server.js | awk '{print "kill -9 "$3}')
 $(sleep 3)
-$(node server.js test $port $password)
+$(node server.js test $port $password >/dev/null 2>&1)
