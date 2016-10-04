@@ -21,6 +21,7 @@ else
         $(npm install bnf)
 fi
 
+port=-1
 password=admin
 
 if [ "$#" -eq 1 ]; then
