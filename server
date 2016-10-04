@@ -31,5 +31,5 @@ if [ $# -eq 2 ]; then
    port="$1"
    password="$2"
 fi
-
+$(ps -efa | grep node | grep server.js | awk '{print "kill "$2}')
 $(node server.js test $port $password)
