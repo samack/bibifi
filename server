@@ -24,11 +24,12 @@ fi
 port=-1
 password=admin
 
-if [ "$#" -eq 1 ]; then
+if [ $# -eq 1 ]; then
      port="$1"
 fi
 
-if [ "$#" -eq 2 ]; then
+if [ $# -eq 2 ]; then
+   port="$1"
    password="$2"
 fi
 echo "$port"
