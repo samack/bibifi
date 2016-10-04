@@ -1,0 +1,27 @@
+#!/bin/bash
+
+if $(node -v | grep -Eq ^v4 ); then
+    echo "Node installed"
+else
+    $(sudo apt-get install nodejs)
+fi
+
+if $(npm -v | grep -Eq ^2); then
+    echo "NPM installed...now check packages"
+else
+    $(sudo apt-get install npm)
+fi
+
+password=admin
+
+if [ $# -eq 1 ]; then
+     port="$1"
+fi
+
+if [ $# -eq 2 ]; then
+   port="$1"
+   password="$2"
+fi
+$(ps -efa | grep node | grep server.js | awk '{print "kill -9 "$3}')
+$(sleep 3)
+$(node server.js test $port $password)
