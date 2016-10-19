@@ -1,12 +1,3 @@
-{
-    "type": "correctness",
-    "target_team": 904,
-    "arguments": {
-        "argv": ["%PORT%"],
-        "base64": false
-    },
-    "programs": [
-        {"program": "as principal admin password \"password\" do\nset x = \"x\"\nreturn x\n***", "base64": false},
-        {"program": "_____%20%20%2F", "base64": true}
-    ]
-}
+
+
+{"type": "correctness", "target_team": 909, "arguments": {"argv": ["%PORT%"]}, "programs": [{"output": [{"status": "CREATE_PRINCIPAL"}, {"status": "SET"}, {"status": "SET_DELEGATION"}, {"status": "RETURNING", "output": "my string"}], "program": "as principal admin password \"admin\" do\ncreate principal bob \"B0BPWxxd\"\nset x = \"my string\"\nset delegation x admin read -> bob\nreturn x\n***\n"}, {"output": [{"status": "RETURNING", "output": "my string"}], "program": "as principal bob password \"B0BPWxxd\" do\nreturn x\n***\n"}, {"output": [{"status": "DENIED"}], "program": "as principal bob password \"B0BPWxxd\" do\nset x = \"another string\"\nreturn x\n***\n"}]}
